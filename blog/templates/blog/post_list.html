@@ -18,5 +18,13 @@
             <h2><a href="">İkinci gönderim</a></h2>
             <p>Bir template oluşturmayı ve bu template in server da nasıl göründüğünü anlamaya çalışıyorum.</p>
         </div>
+
+        {% for post in posts %}
+		    <div>
+		        <p>published: {{ post.yayinlama_tarihi }}</p>
+		        <h1><a href="">{{ post.baslik }}</a></h1>
+		        <p>{{ post.yazi|linebreaksbr }}</p>
+		    </div>
+		{% endfor %}
     </body>
 </html>

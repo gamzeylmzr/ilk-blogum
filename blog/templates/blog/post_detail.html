@@ -13,15 +13,15 @@
 	            <p>Bir template oluşturmayı ve bu template in server da nasıl göründüğünü anlamaya çalışıyorum.</p>
 	        </div>
 	 {% for post in posts %}
-		<div class="post">
-			<br>
-			<div class="date">
-				<p>{{ post.yayinlama_tarihi }}</p>
-			</div>
-			<br>
-			<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.baslik }}</a></h2>
-			<p>{{ post.yazi|linebreaksbr }}</p>
-		</div>
+	<div class="post">
+        {% if post.yayinlama_tarihi %}
+            <div class="date">
+                {{ post.yayinlama_tarihi }}
+            </div>
+        {% endif %}
+        <h1>{{ post.baslik }}</h1>
+        <p>{{ post.yazi|linebreaksbr }}</p>
+    </div>
 	{% endfor %}
 {% endblock content %}
 
